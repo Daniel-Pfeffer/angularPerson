@@ -40,10 +40,7 @@
             (mouseenter)="hoveredPerson = person" style="max-width: 50%"
             [ngStyle]="returnColor(person)">
             <ng-container *ngIf="filterInName(person)">
-                <td (click)="deleteThis(person)"><img src="../favicon.ico"></td>
-                <td>{{person.firstname}}</td>
-                <td>{{person.lastname}}</td>
-                <td>{{person.country}}</td>
+                <app-person-detail (deleted)="deleteThis($event)" [person]="person"></app-person-detail>
             </ng-container>
         </tr>
     </table>

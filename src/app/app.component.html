@@ -1,20 +1,43 @@
-<!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{ title }}!
-  </h1>
-  <img width="300" alt="Angular Logo" src="data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCAyNTAgMjUwIj4KICAgIDxwYXRoIGZpbGw9IiNERDAwMzEiIGQ9Ik0xMjUgMzBMMzEuOSA2My4ybDE0LjIgMTIzLjFMMTI1IDIzMGw3OC45LTQzLjcgMTQuMi0xMjMuMXoiIC8+CiAgICA8cGF0aCBmaWxsPSIjQzMwMDJGIiBkPSJNMTI1IDMwdjIyLjItLjFWMjMwbDc4LjktNDMuNyAxNC4yLTEyMy4xTDEyNSAzMHoiIC8+CiAgICA8cGF0aCAgZmlsbD0iI0ZGRkZGRiIgZD0iTTEyNSA1Mi4xTDY2LjggMTgyLjZoMjEuN2wxMS43LTI5LjJoNDkuNGwxMS43IDI5LjJIMTgzTDEyNSA1Mi4xem0xNyA4My4zaC0zNGwxNy00MC45IDE3IDQwLjl6IiAvPgogIDwvc3ZnPg==">
-</div>
-<h2>Here are some links to help you start: </h2>
-<ul>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://angular.io/tutorial">Tour of Heroes</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://github.com/angular/angular-cli/wiki">CLI Documentation</a></h2>
-  </li>
-  <li>
-    <h2><a target="_blank" rel="noopener" href="https://blog.angular.io/">Angular blog</a></h2>
-  </li>
-</ul>
+<div id="main">
+    <h1>{{title}}</h1>
 
+
+    <label>
+        Firstname:
+        <input type="text" [value]="selectedPerson != undefined ? selectedPerson.firstname : null"
+               [(ngModel)]="nameToChange" (input)="changeName(selectedPerson)">
+    </label>
+    <label>
+        Lastname:
+        <input type="text" [value]="selectedPerson != undefined ? selectedPerson.lastname : null"
+               [(ngModel)]="lastNameToChange" (input)="changeLastName(selectedPerson)">
+    </label>
+    <br>
+    <div class="formButton">
+        <button (click)="clearInputs()">Clear</button>
+        <button (click)="addUser()">Add</button>
+    </div>
+    <br>
+    <br>
+    <br>
+    <button class="sorter" (click)="sort('firstname')">Sort after forename</button>
+    <button class="sorter" (click)="sort('lastname')">Sort after surname</button>
+    <button class="sorter" (click)="sort('country')">Sort after country</button>
+    <br>
+    <table cellspacing="0" cellpadding="0">
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Surname</th>
+            <th>Country</th>
+        </tr>
+        <tr *ngFor="let person of persons" (click)="selectedPerson = person"
+            (mouseenter)="hoveredPerson != person ? hoveredPerson = person : null" style="max-width: 50%"
+            [ngStyle]="returnColor(person)">
+            <td>{{person.id}}.</td>
+            <td>{{person.firstname}}</td>
+            <td>{{person.lastname}}</td>
+            <td>{{person.country}}</td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,32 @@
+.sorter{
+    min-height: 5%;
+    min-width: 5%;
+    padding: 1.5%;
+    border-radius: 5px;
+    margin: 0.5% 0.5% 20px;
+}
+*{
+    font-family: 'Roboto', sans-serif;
+}
+.formButton{
+    position: relative;
+    margin-left: 10%;
+}
+.formButton button{
+    min-height: 5%;
+    min-width: 5%;
+    padding: 1.5%;
+    margin: 0.25%;
+    border-radius: 5px;
+}
+
+table{
+    border: none;
+}
+
+#main{
+    display: block;
+    margin: auto;
+    width: 60%;
+    padding-left: 3%;
+}

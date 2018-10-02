@@ -25,6 +25,10 @@
     <button class="sorter" (click)="sort('lastname')">Sort after surname</button>
     <button class="sorter" (click)="sort('country')">Sort after country</button>
     <br>
+    <label>
+        Filter:
+        <input type="text" [(ngModel)]="filter">
+    </label>
     <table cellspacing="0" cellpadding="0">
         <tr>
             <th>ID</th>
@@ -33,12 +37,14 @@
             <th>Country</th>
         </tr>
         <tr *ngFor="let person of persons" (click)="selectedPerson = person"
-            (mouseenter)="hoveredPerson != person ? hoveredPerson = person : null" style="max-width: 50%"
+            (mouseenter)="hoveredPerson = person" style="max-width: 50%"
             [ngStyle]="returnColor(person)">
-            <td>{{person.id}}.</td>
-            <td>{{person.firstname}}</td>
-            <td>{{person.lastname}}</td>
-            <td>{{person.country}}</td>
+            <ng-container *ngIf="filterInName(person)">
+                <td (click)="deleteThis(person)"><img src="../favicon.ico"></td>
+                <td>{{person.firstname}}</td>
+                <td>{{person.lastname}}</td>
+                <td>{{person.country}}</td>
+            </ng-container>
         </tr>
     </table>
 </div>

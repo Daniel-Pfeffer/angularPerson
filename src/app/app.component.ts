@@ -1066,7 +1066,7 @@ export class AppComponent {
 
     // generate a country randomly out of the countryList array
     private randCountryGenerate(): string {
-        const countryID = Math.floor(Math.random() * Math.floor(this.max));
+        const countryID = Math.floor(Math.random() * Math.floor(this.max + 1));
         return this.countryList[countryID];
     }
 

@@ -121,6 +121,125 @@
           }
         }
       }
+    },
+    "hausubung1DanielPfeffer": {
+      "root": "projects/hausubung1DanielPfeffer/",
+      "sourceRoot": "projects/hausubung1DanielPfeffer/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/hausubung1DanielPfeffer",
+            "index": "projects/hausubung1DanielPfeffer/src/index.html",
+            "main": "projects/hausubung1DanielPfeffer/src/main.ts",
+            "polyfills": "projects/hausubung1DanielPfeffer/src/polyfills.ts",
+            "tsConfig": "projects/hausubung1DanielPfeffer/tsconfig.app.json",
+            "assets": [
+              "projects/hausubung1DanielPfeffer/src/favicon.ico",
+              "projects/hausubung1DanielPfeffer/src/assets"
+            ],
+            "styles": [
+              "projects/hausubung1DanielPfeffer/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/hausubung1DanielPfeffer/src/environments/environment.ts",
+                  "with": "projects/hausubung1DanielPfeffer/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "hausubung1DanielPfeffer:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "hausubung1DanielPfeffer:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "hausubung1DanielPfeffer:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/hausubung1DanielPfeffer/src/test.ts",
+            "polyfills": "projects/hausubung1DanielPfeffer/src/polyfills.ts",
+            "tsConfig": "projects/hausubung1DanielPfeffer/tsconfig.spec.json",
+            "karmaConfig": "projects/hausubung1DanielPfeffer/karma.conf.js",
+            "styles": [
+              "projects/hausubung1DanielPfeffer/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/hausubung1DanielPfeffer/src/favicon.ico",
+              "projects/hausubung1DanielPfeffer/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/hausubung1DanielPfeffer/tsconfig.app.json",
+              "projects/hausubung1DanielPfeffer/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "hausubung1DanielPfeffer-e2e": {
+      "root": "projects/hausubung1DanielPfeffer-e2e/",
+      "projectType": "application",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/hausubung1DanielPfeffer-e2e/protractor.conf.js",
+            "devServerTarget": "hausubung1DanielPfeffer:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "hausubung1DanielPfeffer:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/hausubung1DanielPfeffer-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
     }
   },
   "defaultProject": "angular"

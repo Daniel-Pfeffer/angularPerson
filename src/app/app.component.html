@@ -1,47 +1,37 @@
 <div id="main">
     <h1>{{title}}</h1>
 
-
-    <label>
-        Firstname:
-        <input type="text" [value]="selectedPerson != undefined ? selectedPerson.firstname : null"
-               [(ngModel)]="nameToChange" (input)="changeName(selectedPerson)">
-    </label>
-    <label>
-        Lastname:
-        <input type="text" [value]="selectedPerson != undefined ? selectedPerson.lastname : null"
-               [(ngModel)]="lastNameToChange" (input)="changeLastName(selectedPerson)">
-    </label>
-    <br>
-    <div class="formButton">
-        <button (click)="clearInputs()">Clear</button>
-        <button (click)="addUser()">Add</button>
+    <div>
+        <label>
+            Firstname:
+            <input type="text" [value]="selectedPerson != undefined ? selectedPerson.firstname : null"
+                   [(ngModel)]="nameToChange">
+        </label>
+        <label>
+            Lastname:
+            <input type="text" [value]="selectedPerson != undefined ? selectedPerson.lastname : null"
+                   [(ngModel)]="lastNameToChange">
+        </label>
+        <img src="assets/add.png" (click)="addUser()" width="30px" height="30px" style="margin-bottom: -12px">
     </div>
-    <br>
-    <br>
-    <br>
+    <hr>
+    <h1>Search</h1>
+    <label>
+        <input type="text" [(ngModel)]="filter">
+    </label>
+    <hr>
+    <h1>Sort</h1>
     <button class="sorter" (click)="sort('id')">Sort after id</button>
     <button class="sorter" (click)="sort('firstname')">Sort after forename</button>
     <button class="sorter" (click)="sort('lastname')">Sort after surname</button>
     <button class="sorter" (click)="sort('country')">Sort after country</button>
     <br>
-    <label>
-        Filter:
-        <input type="text" [(ngModel)]="filter">
-    </label>
-    <table cellspacing="0" cellpadding="0">
-        <tr>
-            <th>Icon</th>
-            <th>Name</th>
-            <th>Surname</th>
-            <th>Country</th>
-        </tr>
-        <tr *ngFor="let person of persons" (click)="selectedPerson = person"
-            (mouseenter)="hoveredPerson = person" style="max-width: 50%"
-            [ngStyle]="returnColor(person)">
-            <ng-container *ngIf="filterInName(person)">
-                <app-person-detail (deleted)="deleteThis($event)" [person]="person"></app-person-detail>
-            </ng-container>
-        </tr>
-    </table>
+
+    <div *ngFor="let person of persons"
+         (mouseenter)="hoveredPerson = person" style="max-width: 100%"
+         [ngStyle]="returnColor(person)">
+        <ng-container *ngIf="filterInName(person)" style="display: flex">
+            <app-person-detail (deleted)="deleteThis($event)" [person]="person"></app-person-detail>
+        </ng-container>
+    </div>
 </div>

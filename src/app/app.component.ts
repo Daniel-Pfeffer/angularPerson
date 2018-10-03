@@ -1032,24 +1032,6 @@ export class AppComponent {
         ];
     }
 
-    changeName(person: Person): void {
-        if (this.selectedPerson !== undefined) {
-            person.firstname = this.nameToChange;
-        }
-    }
-
-    changeLastName(selectedPerson: Person): void {
-        if (this.selectedPerson !== undefined) {
-            selectedPerson.lastname = this.lastNameToChange;
-        }
-    }
-
-    clearInputs(): void {
-        this.selectedPerson = null;
-        this.lastNameToChange = '';
-        this.nameToChange = '';
-    }
-
     addUser(): void {
         // Generated values for person
         const lastID = this.persons[this.persons.length - 1] !== undefined ? this.persons[this.persons.length - 1].id + 1 : 1 ;

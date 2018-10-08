@@ -13,28 +13,28 @@ export class PersonDetailComponent {
     selectedPerson: Person;
     nameToChange: string;
     lastNameToChange: string;
-
+    // Delete function to send to main part
     deleteThis() {
         this.deleted.emit(this.person);
     }
-
+    // get Image of either man or woman
     returnImg(): string {
         return this.person.gender === 'M' ? 'assets/man.png' : 'assets/woman.png';
     }
-
+    // toggle the visibility of the editing part
     toggleVisible(): void {
         this.visibility = !this.visibility;
         this.selectedPerson = null;
         this.nameToChange = '';
         this.lastNameToChange = '';
     }
-
+    // function to change the name of selected person when input is made
     changeName(person: Person): void {
         if (this.selectedPerson !== undefined) {
             person.firstname = this.nameToChange;
         }
     }
-
+    // same as changeName but for surname
     changeLastName(selectedPerson: Person): void {
         if (this.selectedPerson !== undefined) {
             selectedPerson.lastname = this.lastNameToChange;

@@ -1,6 +1,5 @@
 <div id="main">
     <h1>{{title}}</h1>
-
     <div>
         <label>
             Firstname:
@@ -12,7 +11,8 @@
             <input type="text" [value]="selectedPerson != undefined ? selectedPerson.lastname : null"
                    [(ngModel)]="lastNameToChange">
         </label>
-        <img src="assets/add.png" (click)="addUser()" width="30px" height="30px" style="margin-bottom: -12px; margin-left: 3px">
+        <img src="assets/add.png" (click)="addUser()" width="30px" height="30px"
+             style="margin-bottom: -12px; margin-left: 3px">
     </div>
     <hr>
     <h1>Search</h1>

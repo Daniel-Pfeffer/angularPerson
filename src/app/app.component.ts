@@ -9,7 +9,7 @@
  *
  ***********************************************************************/
 
-import {Component} from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {Person} from './Person';
 import {HttpService} from './http.service';
 
@@ -18,7 +18,7 @@ import {HttpService} from './http.service';
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css']
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
 
     title: string;              // title of the angular app
     persons: Array<Person>;     // Array of person
@@ -33,9 +33,12 @@ export class AppComponent {
     // size of country list that it wont validate each time a new person is added
     private max: number;
 
+    ngOnInit(): void {
+        this.getData();
+    }
+
     constructor(http: HttpService) {
         this.http = http;
-        this.getData();
         this.title = 'Hausübung 1';
         this.max = this.countryList.length;
         this.filter = '';

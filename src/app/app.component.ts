@@ -56,7 +56,7 @@ export class AppComponent implements OnInit {
     addUser(): void {
         // Generated values for person
         const lastID = this.persons[this.persons.length - 1] !== undefined ? this.persons[this.persons.length - 1].id + 1 : 1;
-        const gender = Math.random() > 0.5 ? 'M' : 'W';
+        const gender = Math.random() > 0.505 ? 'M' : 'W';
         const email = this.nameToChange + this.lastNameToChange + '@example.com';
         const country = this.randCountryGenerate();
         const age = Math.floor(Math.random() * Math.floor(90));

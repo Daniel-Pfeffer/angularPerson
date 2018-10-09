@@ -1,13 +1,13 @@
 /**********************************************************************
-* Project           : Simple Person management tool
-*
-* Author            : Daniel Pfeffer
-*
-* Date created      : 02.08.2018
-*
-* Purpose           : Tool to display and manage persons
-*
-***********************************************************************/
+ * Project           : Simple Person management tool
+ *
+ * Author            : Daniel Pfeffer
+ *
+ * Date created      : 02.08.2018
+ *
+ * Purpose           : Tool to display and manage persons
+ *
+ ***********************************************************************/
 
 import {Component} from '@angular/core';
 import {Person} from './Person';
@@ -45,8 +45,8 @@ export class AppComponent {
     private getData(): void {
         // Subscribe to asynchronus service
         this.http.getData().subscribe(data => {
-                // Dunno y it works but fuck it
-                this.persons = data;
+            // Dunno y it works but fuck it
+            this.persons = <Array<Person>>data;
         });
     }
 

@@ -2,17 +2,17 @@
     <img [src]="returnImg()" width="20px" height="20px" style="margin-bottom: -5px">
     <a>{{person.id}}: </a>
     <a>{{person.firstname}}, </a>
-    <a style="font-weight: 900">{{person.lastname}}, </a>
+    <a style="font-weight: 900; color: darkred;">{{person.lastname}}, </a>
     <i>{{person.country}}</i>
 </div>
-<div *ngIf="visibility">
-    <a (click)="deleteThis(person)"><img src="/assets/bin.png" width="20px" height="20px"
-                                         style="margin-bottom: -5px"></a>
+<div *ngIf="visibility" style="margin-left: 16.5px">
     <input type="text" [value]="selectedPerson != undefined ? selectedPerson.firstname : null"
            [(ngModel)]="nameToChange" (input)="changeName(selectedPerson)" style="margin-left: 10px">
     <input type="text" [value]="selectedPerson != undefined ? selectedPerson.lastname : null"
            [(ngModel)]="lastNameToChange" (input)="changeLastName(selectedPerson)"
            style="margin-left: 20px; margin-right: 10px">
     <img src="assets/edit.png" width="20px" height="20px" (click)="selectedPerson = person" style="margin-bottom: -5px">
+    <a (click)="deleteThis(person)"><img src="/assets/bin.png" width="20px" height="20px"
+                                         style="margin-bottom: -5px"></a>
 </div>
 <hr>

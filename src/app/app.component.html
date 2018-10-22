@@ -31,7 +31,7 @@
          (mouseenter)="hoveredPerson = person" style="max-width: 100%"
          [ngStyle]="returnColor(person)">
         <ng-container *ngIf="filterInName(person)" style="display: flex">
-            <app-person-detail (deleted)="deleteThis($event)" [person]="person"></app-person-detail>
+            <app-person-detail (deleted)="deleteThis($event)" (toggle)="toggle($event)" [person]="person"></app-person-detail>
         </ng-container>
     </div>
 </div>

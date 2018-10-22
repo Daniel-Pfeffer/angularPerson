@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     selectedPerson: Person;     // currently selected person (when clicked on)
     hoveredPerson: Person;      // currently hovered person (when hovered over)
     nameToChange: string;       // ngModel of the name
-    lastNameToChange: string;   // ng Model of the surname
+    lastNameToChange: string;   // ngModel of the surname
     filter: string;             // filter for display
     http: HttpService;          // HttpService instance
     // Country list to get a random country
@@ -50,6 +50,7 @@ export class AppComponent implements OnInit {
         this.http.getData().subscribe(data => {
             // Dunno y it works but fuck it
             this.persons = <Array<Person>>data;
+            this.sort('id');
         });
     }
 
@@ -63,6 +64,7 @@ export class AppComponent implements OnInit {
         const isReg = Math.random() > 0.5;
         // declare new person and push to array
         const newUser: Person = new Person(lastID, gender, this.nameToChange, this.lastNameToChange, email, country, age, isReg);
+        this.http.insert(newUser).subscribe();
         this.persons.push(newUser);
         // clear input fields
         this.nameToChange = null;
@@ -90,7 +92,6 @@ export class AppComponent implements OnInit {
         return {
             'background-color': color
         };
-
     }
 
     // function call and param for the sort algorithm
@@ -124,10 +125,16 @@ export class AppComponent implements OnInit {
     }
 
     // delete the given person out of the array
-    deleteThis(id: Person) {
-        const index = this.persons.indexOf(id, 0);
+    deleteThis(person: Person) {
+        const index = this.persons.indexOf(person, 0);
         if (index > -1) {
             this.persons.splice(index, 1);
+            this.http.delete(person.id).subscribe();
         }
+    }
+
+    toggle(person: Person) {
+        const tempPerson: Person = new Person(person.id, person.gender, person.firstname, person.lastname, person.email, person.country, person.age, person.registered);
+        this.http.update(tempPerson, person.id).subscribe();
     }
 }

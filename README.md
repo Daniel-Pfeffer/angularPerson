@@ -1,27 +1,11 @@
-# Angular
+# First Angular application
+Simple Angular app wich manage a bunch of persons.
+You can display, delete and modify them.
+You can also add more if needed.
+The server wich is the personServer repository is required
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 6.2.1.
+The project is able to run in the Browser aswell as a desktop application, due to the help off electron
 
-## Development server
-
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
-
-## Code scaffolding
-
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
-
-## Build
-
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
-
-## Running unit tests
-
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+Use "npm run start" to start the the app for the browser only
+Use "npm run electron-build" to build and run the app for the Desktop
+Use "npm run electron" to run the app in the Desktop

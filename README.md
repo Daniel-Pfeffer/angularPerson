@@ -1,8 +1,8 @@
 # First Angular application
-Simple Angular app wich manage a bunch of persons.
+Simple Angular app which manage a bunch of persons.
 You can display, delete and modify them.
 You can also add more if needed.
-The server wich is the personServer repository is required
+The server which is the personServer repository is required
 
 The project is able to run in the Browser aswell as a desktop application, due to the help off electron
 
